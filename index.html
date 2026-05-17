@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startup Hiring Research — Full Stack Engineer</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+  :root {
+    --bg: #0a0a0f;
+    --surface: #12121a;
+    --surface2: #1a1a28;
+    --border: #2a2a42;
+    --accent: #6ee7b7;
+    --accent2: #818cf8;
+    --accent3: #f472b6;
+    --accent4: #fbbf24;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --high: #6ee7b7;
+    --med: #fbbf24;
+    --low: #f87171;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: 32px 20px 80px;
+  }
+
+  /* HEADER */
+  .header {
+    max-width: 1400px;
+    margin: 0 auto 48px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .title-block h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1.05;
+    color: #fff;
+  }
+
+  .title-block h1 span { color: var(--accent); }
+
+  .title-block p {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid;
+  }
+
+  .badge-green { color: var(--accent); border-color: var(--accent); background: rgba(110,231,183,0.07); }
+  .badge-purple { color: var(--accent2); border-color: var(--accent2); background: rgba(129,140,248,0.07); }
+  .badge-pink { color: var(--accent3); border-color: var(--accent3); background: rgba(244,114,182,0.07); }
+  .badge-yellow { color: var(--accent4); border-color: var(--accent4); background: rgba(251,191,36,0.07); }
+
+  /* NAV */
+  .toc {
+    max-width: 1400px;
+    margin: 0 auto 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .toc-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.15s;
+    cursor: pointer;
+  }
+
+  .toc-link:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* SECTION */
+  .section {
+    max-width: 1400px;
+    margin: 0 auto 56px;
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-title span { color: var(--accent); }
+
+  /* TABLE WRAPPER */
+  .table-wrapper {
+    overflow-x: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+
+  thead th {
+    background: var(--surface2);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 12px;
+    text-align: left;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.12s;
+  }
+
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: rgba(255,255,255,0.03); }
+
+  td {
+    padding: 10px 12px;
+    vertical-align: top;
+    color: var(--text);
+    min-width: 90px;
+  }
+
+  td.company-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #fff;
+    white-space: nowrap;
+    min-width: 140px;
+  }
+
+  td a {
+    color: var(--accent2);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+  }
+
+  td a:hover { text-decoration: underline; color: var(--accent); }
+
+  .prob {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .prob-high { background: rgba(110,231,183,0.15); color: var(--high); border: 1px solid rgba(110,231,183,0.3); }
+  .prob-med { background: rgba(251,191,36,0.15); color: var(--med); border: 1px solid rgba(251,191,36,0.3); }
+  .prob-low { background: rgba(248,113,113,0.15); color: var(--low); border: 1px solid rgba(248,113,113,0.3); }
+
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 2px 6px;
+    border-radius: 3px;
+    background: rgba(129,140,248,0.1);
+    color: var(--accent2);
+    margin: 1px;
+    white-space: nowrap;
+  }
+
+  .yes { color: var(--accent); font-weight: 600; }
+  .no { color: var(--low); }
+  .maybe { color: var(--med); }
+
+  /* RANKING SECTION */
+  .rank-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .rank-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.15s;
+  }
+
+  .rank-card:hover { border-color: var(--accent2); }
+
+  .rank-card::before {
+    content: attr(data-rank);
+    position: absolute;
+    top: -10px;
+    right: 12px;
+    font-family: 'Syne', sans-serif;
+    font-size: 72px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+
+  .rank-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .rank-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .rank-why {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+
+  .rank-action {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent4);
+  }
+
+  /* STRATEGY SECTION */
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 20px;
+  }
+
+  .strategy-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    border-top: 3px solid;
+  }
+
+  .strategy-card.founder { border-top-color: var(--accent3); }
+  .strategy-card.cto { border-top-color: var(--accent2); }
+  .strategy-card.em { border-top-color: var(--accent4); }
+  .strategy-card.recruiter { border-top-color: var(--accent); }
+
+  .strategy-who {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+
+  .strategy-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+  }
+
+  .strategy-step {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .step-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    min-width: 20px;
+    padding-top: 2px;
+  }
+
+  .step-text {
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .step-text strong { color: var(--accent4); }
+
+  /* INFO BOXES */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+  }
+
+  .info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+
+  .info-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .info-title .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .info-list {
+    list-style: none;
+  }
+
+  .info-list li {
+    padding: 6px 0;
+    font-size: 12.5px;
+    color: var(--text);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .info-list li:last-child { border-bottom: none; }
+
+  .info-list li::before {
+    content: '→';
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    min-width: 16px;
+    padding-top: 1px;
+  }
+
+  /* TEMPLATE BLOCK */
+  .template-block {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--text);
+    position: relative;
+    margin-top: 16px;
+  }
+
+  .template-block .placeholder { color: var(--accent4); }
+  .template-block .label {
+    position: absolute;
+    top: -1px;
+    right: 16px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    background: var(--accent3);
+    color: #000;
+    padding: 2px 8px;
+    border-radius: 0 0 6px 6px;
+    font-weight: 600;
+  }
+
+  /* ADVANTAGE TABLE */
+  .adv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+  }
+
+  .adv-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+  }
+
+  .adv-type {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+  }
+
+  .adv-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+
+  .adv-text {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .adv-stars {
+    margin-top: 10px;
+    color: var(--accent4);
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+
+  /* FOOTER */
+  .footer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 48px 0;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .highlight-row { background: rgba(110,231,183,0.03) !important; }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-top">
+    <div class="title-block">
+      <h1>Startup <span>Hiring</span><br>Research Map</h1>
+      <p>// Full Stack Engineer · May 2026 · Outbound Job Search Strategy</p>
+    </div>
+  </div>
+  <div class="badge-row">
+    <span class="badge badge-green">Next.js · TypeScript · Node.js</span>
+    <span class="badge badge-purple">PostgreSQL · Docker · CI/CD</span>
+    <span class="badge badge-pink">Azure · REST APIs</span>
+    <span class="badge badge-yellow">DevOps · Cloud Infrastructure</span>
+    <span class="badge badge-green">Remote · Startup · International</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="toc">
+  <a class="toc-link" href="#company-table">30+ Company Table</a>
+  <a class="toc-link" href="#top10">Top 10 to Contact</a>
+  <a class="toc-link" href="#who-first">Who to Contact First</a>
+  <a class="toc-link" href="#outreach-strategy">Outreach Strategy</a>
+  <a class="toc-link" href="#international">International Fit</a>
+  <a class="toc-link" href="#devops-advantage">DevOps Advantage</a>
+  <a class="toc-link" href="#templates">Message Templates</a>
+</div>
+
+<!-- ===== SECTION 1: COMPANY TABLE ===== -->
+<div class="section" id="company-table">
+  <div class="section-label">01 — Intelligence</div>
+  <div class="section-title">30+ Startup <span>Targets</span></div>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Company</th>
+          <th>Country</th>
+          <th>Size</th>
+          <th>Industry</th>
+          <th>Why Good Match</th>
+          <th>Tech Stack</th>
+          <th>Probability</th>
+          <th>Careers</th>
+          <th>LinkedIn Co.</th>
+          <th>Founder/CEO</th>
+          <th>CTO/Eng Head</th>
+          <th>Founder LI</th>
+          <th>CTO LI</th>
+          <th>Remote?</th>
+          <th>Visa?</th>
+          <th>Hiring?</th>
+          <th>Best Outreach</th>
+          <th>Est. Salary</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- 1 -->
+        <tr class="highlight-row">
+          <td>1</td>
+          <td class="company-name">Weflow</td>
+          <td>🇩🇪 Germany</td>
+          <td>11–50</td>
+          <td>Revenue AI / SaaS</td>
+          <td>100% remote EU, Next.js/Node.js/TS stack, co-founders active on LinkedIn, PMF + funded</td>
+          <td><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">AWS</span><span class="tag">PostgreSQL</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://getweflow.com/jobs" target="_blank">getweflow.com/jobs</a></td>
+          <td><a href="https://www.linkedin.com/company/getweflow" target="_blank">LinkedIn</a></td>
+          <td>Philipp Stelzer (Co-CEO), Janis Zech (Co-CEO)</td>
+          <td>Internal eng lead</td>
+          <td><a href="https://www.linkedin.com/in/philipp-stelzer" target="_blank">Philipp LI</a></td>
+          <td>—</td>
+          <td class="yes">✓ Full Remote EU</td>
+          <td class="maybe">Contractor OK</td>
+          <td class="yes">Yes</td>
+          <td>LinkedIn DM to Philipp Stelzer</td>
+          <td>€55–75k</td>
+          <td>Backed by Cherry Ventures. Founders reply to cold LI messages. Engineering-first culture. Stack is an exact match.</td>
+        </tr>
+
+        <!-- 2 -->
+        <tr>
+          <td>2</td>
+          <td class="company-name">Cosuno</td>
+          <td>🇩🇪 Germany</td>
+          <td>50–100</td>
+          <td>Construction Tech / AI SaaS</td>
+          <td>Actively hiring full-stack TS engineers, remote EU, international team, startup culture</td>
+          <td><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">CI/CD</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://www.cosuno.com/careers" target="_blank">cosuno.com/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/cosuno" target="_blank">LinkedIn</a></td>
+          <td>Tobias Hann (CEO)</td>
+          <td>CTO (internal)</td>
+          <td><a href="https://www.linkedin.com/in/tobias-hann" target="_blank">Tobias LI</a></td>
+          <td>—</td>
+          <td class="yes">✓ Remote EU</td>
+          <td class="maybe">EU preferred</td>
+          <td class="yes">Yes (active JD)</td>
+          <td>Apply via careers page + LI DM to CEO</td>
+          <td>€60–80k</td>
+          <td>Reshaping €2T construction industry. Fast-growing, international engineers. Trunk-based dev, daily releases, CI/CD focus matches your profile exactly.</td>
+        </tr>
+
+        <!-- 3 -->
+        <tr class="highlight-row">
+          <td>3</td>
+          <td class="company-name">Lago</td>
+          <td>🇫🇷 France / Remote</td>
+          <td>10–30</td>
+          <td>Billing Infrastructure / Open Source</td>
+          <td>YC + FirstMark backed, open-source billing infra, trusted by Mistral, Groq, CoreWeave. Engineering-first. Hire globally.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://www.getlago.com/jobs" target="_blank">getlago.com/jobs</a></td>
+          <td><a href="https://www.linkedin.com/company/getlago" target="_blank">LinkedIn</a></td>
+          <td>Raffi Güler (CEO)</td>
+          <td>Eng lead (YC team)</td>
+          <td><a href="https://www.linkedin.com/in/raffi-guler" target="_blank">Raffi LI</a></td>
+          <td>—</td>
+          <td class="yes">✓ Remote Global</td>
+          <td class="maybe">Likely contractor</td>
+          <td class="yes">Yes</td>
+          <td>LI DM + GitHub contribution</td>
+          <td>$60–90k USD</td>
+          <td>Open-source project — contributing to repo before applying is a MASSIVE differentiator. Founders engage with contributors publicly.</td>
+        </tr>
+
+        <!-- 4 -->
+        <tr>
+          <td>4</td>
+          <td class="company-name">NetBird</td>
+          <td>🇩🇪 Germany / Remote</td>
+          <td>10–30</td>
+          <td>Network Security / DevTools</td>
+          <td>Berlin-based, remote roles, open-source network infrastructure. Actively posting on HN. TypeScript + cloud stack. Small team.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">Go</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Cloud</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://netbird.io/careers" target="_blank">netbird.io/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/netbird-io" target="_blank">LinkedIn</a></td>
+          <td>Mikhail Bragin (CEO)</td>
+          <td>Mikhail Bragin (technical)</td>
+          <td><a href="https://www.linkedin.com/in/mikhail-bragin" target="_blank">Mikhail LI</a></td>
+          <td>Same as founder</td>
+          <td class="yes">✓ Remote (some roles)</td>
+          <td class="maybe">EU preferred</td>
+          <td class="yes">Yes — HN post May 2026</td>
+          <td>Direct email to founders + LI connect</td>
+          <td>€55–75k</td>
+          <td>Open-source DevOps/networking tool. Your DevOps learning trajectory is a strong signal here. Reply to their HN post directly — very effective.</td>
+        </tr>
+
+        <!-- 5 -->
+        <tr class="highlight-row">
+          <td>5</td>
+          <td class="company-name">MixRank</td>
+          <td>🇺🇸 US / Remote Global</td>
+          <td>10–50</td>
+          <td>B2B Data / GTM Intelligence</td>
+          <td>YC S11, profitable, employee-owned, explicitly hires globally in 20+ countries. No VC pressure. Full remote. Junior engineers welcome.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">Python</span><span class="tag">Node.js</span><span class="tag">Linux</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://mixrank.com/jobs" target="_blank">mixrank.com/jobs</a></td>
+          <td><a href="https://www.linkedin.com/company/mixrank" target="_blank">LinkedIn</a></td>
+          <td>Scott Milliken (CEO)</td>
+          <td>Kiran (Chief of Staff)</td>
+          <td><a href="https://www.linkedin.com/in/scottmilliken" target="_blank">Scott LI</a></td>
+          <td><a href="https://www.linkedin.com/in/kiran-mixrank" target="_blank">Kiran LI</a></td>
+          <td class="yes">✓ Full Remote Global</td>
+          <td class="yes">Yes — hires globally</td>
+          <td class="yes">Yes — HN May 2026</td>
+          <td>Apply via YC page + email Kiran directly</td>
+          <td>$50–80k USD</td>
+          <td>One of the best options for international candidates. They stated 0–3 years experience welcome. Bootstrapped, stable, no layoff risk. Apply immediately.</td>
+        </tr>
+
+        <!-- 6 -->
+        <tr>
+          <td>6</td>
+          <td class="company-name">Estuary</td>
+          <td>🇺🇸 US / Remote</td>
+          <td>30–80</td>
+          <td>Data Infrastructure / Real-time CDC</td>
+          <td>VC-backed Series A, open-source, developer-first, actively hiring engineers. Full-stack TypeScript + PostgreSQL matches exactly.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">Go</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">Cloud</span></td>
+          <td><span class="prob prob-med">MEDIUM</span></td>
+          <td><a href="https://estuary.dev/careers" target="_blank">estuary.dev/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/estuary-dev" target="_blank">LinkedIn</a></td>
+          <td>David Yaffe (CEO)</td>
+          <td>Johnny LeRoy (CTO)</td>
+          <td><a href="https://www.linkedin.com/in/david-yaffe" target="_blank">David LI</a></td>
+          <td><a href="https://www.linkedin.com/in/johnleroy" target="_blank">Johnny LI</a></td>
+          <td class="yes">✓ Remote US-based preferred</td>
+          <td class="maybe">Check per role</td>
+          <td class="yes">Yes</td>
+          <td>Apply via site + LI connect CTO</td>
+          <td>$80–120k USD</td>
+          <td>Data infra startup. Your PostgreSQL + Docker + CI/CD skills are directly relevant. Growing fast. Engineers get real ownership.</td>
+        </tr>
+
+        <!-- 7 -->
+        <tr class="highlight-row">
+          <td>7</td>
+          <td class="company-name">BoWatt</td>
+          <td>🇩🇪 Germany / UK</td>
+          <td>5–20</td>
+          <td>AI / Manufacturing Software</td>
+          <td>Bootstrapped, profitable Munich startup. Actively hiring full-stack on HN Apr 2026. Very small team — direct founder outreach is the path.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Go</span><span class="tag">PostgreSQL</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://bowatt.com/careers" target="_blank">bowatt.com/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/bowatt" target="_blank">LinkedIn</a></td>
+          <td>Founder (name on LI)</td>
+          <td>Founding eng team</td>
+          <td>Find via LI search</td>
+          <td>—</td>
+          <td class="yes">✓ Remote DE/UK</td>
+          <td class="maybe">EU preferred</td>
+          <td class="yes">Yes — HN Apr 2026</td>
+          <td>Reply to HN post + email founders</td>
+          <td>€55–75k</td>
+          <td>Hidden gem. Small team means your impact is huge. Manufacturing AI is underserved. If you can explain your production experience you'll stand out.</td>
+        </tr>
+
+        <!-- 8 -->
+        <tr>
+          <td>8</td>
+          <td class="company-name">Kanmon</td>
+          <td>🇺🇸 US / Remote</td>
+          <td>10–30</td>
+          <td>FinTech / Embedded Finance</td>
+          <td>Full-stack TypeScript, React, Next.js, NestJS, PostgreSQL, GCP — exact stack match. "Direct line to founders." End-to-end ownership.</td>
+          <td><span class="tag">Next.js</span><span class="tag">NestJS</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span><span class="tag">GCP</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://kanmonhq.com/careers" target="_blank">kanmonhq.com/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/kanmon" target="_blank">LinkedIn</a></td>
+          <td>Co-founders (on LI)</td>
+          <td>CTO (small team)</td>
+          <td>Find via LI</td>
+          <td>—</td>
+          <td class="yes">✓ Remote</td>
+          <td class="maybe">Check per role</td>
+          <td class="yes">Yes — HN May 2026</td>
+          <td>Email mags@kanmonhq.com (mentioned in HN)</td>
+          <td>$80–120k USD</td>
+          <td>Direct email contact mentioned publicly in their HN post. Very rare — act on this fast. Stack is a 100% match.</td>
+        </tr>
+
+        <!-- 9 -->
+        <tr class="highlight-row">
+          <td>9</td>
+          <td class="company-name">Gridmatic</td>
+          <td>🇺🇸 US / Remote</td>
+          <td>10–40</td>
+          <td>Energy Tech / Climate</td>
+          <td>Hiring product engineers for Next.js/React/TypeScript frontend + data backend. Email founder directly (kevin@gridmatic.com).</td>
+          <td><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">AWS</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://gridmatic.com/careers" target="_blank">gridmatic.com/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/gridmatic" target="_blank">LinkedIn</a></td>
+          <td>Kevin Dhingra (CEO)</td>
+          <td>—</td>
+          <td><a href="https://www.linkedin.com/in/kevindhingra" target="_blank">Kevin LI</a></td>
+          <td>—</td>
+          <td class="yes">✓ Remote</td>
+          <td class="maybe">US preferred</td>
+          <td class="yes">Yes — HN May 2026</td>
+          <td>Email kevin@gridmatic.com directly</td>
+          <td>$90–130k USD</td>
+          <td>CEO email is public in their HN post. Send one sentence about the most impressive thing you've built — that's exactly what they asked for.</td>
+        </tr>
+
+        <!-- 10 -->
+        <tr>
+          <td>10</td>
+          <td class="company-name">Topliner</td>
+          <td>🌍 Remote Global</td>
+          <td>2–10</td>
+          <td>AI / Executive Search OS</td>
+          <td>Founding engineer role, Node.js + React + TypeScript + AI workflows. Full remote, equity offered. Small team = big impact.</td>
+          <td><span class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Laravel</span><span class="tag">AI</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://topliner.app" target="_blank">topliner.app</a></td>
+          <td><a href="https://www.linkedin.com/company/topliner" target="_blank">LinkedIn</a></td>
+          <td>Founder (find via LI)</td>
+          <td>Founding eng role</td>
+          <td>Find via LI</td>
+          <td>—</td>
+          <td class="yes">✓ Full Remote</td>
+          <td class="yes">Remote = no sponsorship needed</td>
+          <td class="yes">Yes — HN Apr 2026</td>
+          <td>Apply via topliner.app + LI connect founder</td>
+          <td>$80k + equity</td>
+          <td>Founding engineer role. You'll own architecture. Tiny team. If you want equity and ownership this is a top pick.</td>
+        </tr>
+
+        <!-- 11 -->
+        <tr class="highlight-row">
+          <td>11</td>
+          <td class="company-name">Digimondo</td>
+          <td>🇩🇪 Germany (Hamburg)</td>
+          <td>20–50</td>
+          <td>IoT / Smart City / SaaS</td>
+          <td>Founder-led ~25 person team, backed by energy-sector shareholders, startup culture + stability. Hybrid/remote. Engineering-first.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Docker</span><span class="tag">Cloud</span><span class="tag">IoT</span></td>
+          <td><span class="prob prob-med">MEDIUM</span></td>
+          <td><a href="https://www.digimondo.com/en/careers" target="_blank">digimondo.com/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/digimondo" target="_blank">LinkedIn</a></td>
+          <td>Founder (Hamburg)</td>
+          <td>—</td>
+          <td>Find via LI</td>
+          <td>—</td>
+          <td class="maybe">Hybrid/Remote DE</td>
+          <td class="maybe">EU work right needed</td>
+          <td class="yes">Yes</td>
+          <td>Apply via careers page</td>
+          <td>€55–75k</td>
+          <td>IoT + cloud infra aligns with your DevOps path. Good for EU-based candidates or those with right-to-work.</td>
+        </tr>
+
+        <!-- 12 -->
+        <tr>
+          <td>12</td>
+          <td class="company-name">Yazen</td>
+          <td>🇸🇪 Sweden / Remote EU</td>
+          <td>10–40</td>
+          <td>Digital Healthcare / SaaS</td>
+          <td>Swedish VC-backed startup, full-stack TypeScript/Firebase/Node.js/React role, remote EU, engineering-friendly culture.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Firebase</span><span class="tag">React Native</span></td>
+          <td><span class="prob prob-med">MEDIUM</span></td>
+          <td><a href="https://yazen.se/careers" target="_blank">yazen.se/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/yazen" target="_blank">LinkedIn</a></td>
+          <td>Founders from Min Doktor</td>
+          <td>—</td>
+          <td>Find via LI</td>
+          <td>—</td>
+          <td class="yes">✓ Remote EU</td>
+          <td class="maybe">EU preferred</td>
+          <td class="yes">Yes</td>
+          <td>LI outreach + careers page</td>
+          <td>SEK 550–700k (~€48–60k)</td>
+          <td>Sweden's healthcare startup scene is underrated. Founders from successful exits. Good visa pathway if you want Sweden residency.</td>
+        </tr>
+
+        <!-- 13 -->
+        <tr class="highlight-row">
+          <td>13</td>
+          <td class="company-name">Hotglue</td>
+          <td>🇺🇸 US / Remote</td>
+          <td>10–30</td>
+          <td>SaaS Integrations / DevTools</td>
+          <td>YC S21, native SaaS integration platform, full-stack engineer role active now. Small team, builder mindset valued.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">APIs</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://workatastartup.com/companies/hotglue" target="_blank">workatastartup.com</a></td>
+          <td><a href="https://www.linkedin.com/company/hotglue" target="_blank">LinkedIn</a></td>
+          <td>Tyler DeCicco (CEO)</td>
+          <td>CTO (small team)</td>
+          <td><a href="https://www.linkedin.com/in/tylerdecicco" target="_blank">Tyler LI</a></td>
+          <td>—</td>
+          <td class="yes">✓ Remote</td>
+          <td class="maybe">Check per role</td>
+          <td class="yes">Yes — active on YC</td>
+          <td>Apply via YC + LI DM to Tyler</td>
+          <td>$80–120k USD</td>
+          <td>Integration/API platforms need REST API + TypeScript expertise — exactly your profile. Founders are on LinkedIn and respond.</td>
+        </tr>
+
+        <!-- 14 -->
+        <tr>
+          <td>14</td>
+          <td class="company-name">GovSignals</td>
+          <td>🇺🇸 US / Remote</td>
+          <td>10–30</td>
+          <td>GovTech / AI Platform</td>
+          <td>Hiring Platform Engineer to work with CTO directly. Stack: TypeScript, Node, Cloudflare Workers, Kubernetes, Docker, Postgres, Terraform, AWS. Perfect match.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Kubernetes</span><span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">Terraform</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://govsignals.com/careers" target="_blank">govsignals.com/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/govsignals" target="_blank">LinkedIn</a></td>
+          <td>—</td>
+          <td>CTO (hiring manager)</td>
+          <td>—</td>
+          <td>Find via LI</td>
+          <td class="yes">✓ Remote</td>
+          <td class="maybe">US preferred</td>
+          <td class="yes">Yes — HN posting</td>
+          <td>Apply via careers + LI to CTO</td>
+          <td>$90–140k USD</td>
+          <td>Platform Engineer role matches your DevOps growth path perfectly. Cloudflare Workers + K8s experience is a big plus signal.</td>
+        </tr>
+
+        <!-- 15 -->
+        <tr class="highlight-row">
+          <td>15</td>
+          <td class="company-name">Matcha.fm</td>
+          <td>🌍 Remote Global</td>
+          <td>2–15</td>
+          <td>Creator Economy / Audio</td>
+          <td>Explicitly looking for "Full-Stack / Frontend / AI Engineer" with prior startup experience. High ownership, small team, apply direct URL.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">AI</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://matcha.fm/apply/fse" target="_blank">matcha.fm/apply/fse</a></td>
+          <td><a href="https://www.linkedin.com/company/matcha-fm" target="_blank">LinkedIn</a></td>
+          <td>Founder (find via LI)</td>
+          <td>—</td>
+          <td>Find via LI</td>
+          <td>—</td>
+          <td class="yes">✓ Full Remote</td>
+          <td class="yes">Remote = no sponsorship needed</td>
+          <td class="yes">Yes — HN May 2026</td>
+          <td>Direct apply at matcha.fm/apply/fse</td>
+          <td>$60–100k USD</td>
+          <td>Direct application URL is public. They want builders. Mention your PRISM production project — it's exactly the kind of thing they respect.</td>
+        </tr>
+
+        <!-- 16 -->
+        <tr>
+          <td>16</td>
+          <td class="company-name">VidRush</td>
+          <td>🌍 Remote Global</td>
+          <td>2–10</td>
+          <td>AI Video / Creator Tech</td>
+          <td>Full-stack TypeScript/Next.js/cloud role. Small team, big ownership. AI-assisted development valued. Remote anywhere.</td>
+          <td><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Cloud</span><span class="tag">Stripe</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://weworkremotely.com" target="_blank">WWR listing</a></td>
+          <td><a href="https://www.linkedin.com/company/vidrush" target="_blank">LinkedIn</a></td>
+          <td>Founder (find via LI)</td>
+          <td>—</td>
+          <td>Find via LI</td>
+          <td>—</td>
+          <td class="yes">✓ Full Remote</td>
+          <td class="yes">Remote contractor</td>
+          <td class="yes">Yes</td>
+          <td>Apply WWR + LI DM founder</td>
+          <td>$70–110k USD</td>
+          <td>They explicitly value AI-assisted development (Cursor/Copilot). Your production experience with CI/CD and APIs is a strong signal.</td>
+        </tr>
+
+        <!-- 17 -->
+        <tr class="highlight-row">
+          <td>17</td>
+          <td class="company-name">Pinetree</td>
+          <td>🇺🇸 US / Remote</td>
+          <td>2–10</td>
+          <td>Creator Economy / Web3</td>
+          <td>Third team member hire. TypeScript + React/Next.js + Node + Postgres. Founders want someone highly autonomous — exactly your profile.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://pinetree.xyz" target="_blank">pinetree.xyz</a></td>
+          <td>Find via LI</td>
+          <td>Founders (2-person team)</td>
+          <td>CTO = co-founder</td>
+          <td>Find via LI</td>
+          <td>Find via LI</td>
+          <td class="yes">✓ Remote (quarterly NYC travel)</td>
+          <td class="yes">Remote contractor</td>
+          <td class="yes">Yes — HN Dec 2025</td>
+          <td>DM founders on LI or HN</td>
+          <td>$80–120k + equity</td>
+          <td>Being hire #3 means massive influence. Stack is 100% match. Their HN post is still live — reply to it.</td>
+        </tr>
+
+        <!-- 18 -->
+        <tr>
+          <td>18</td>
+          <td class="company-name">CVector</td>
+          <td>🇺🇸 US / Remote</td>
+          <td>10–25</td>
+          <td>AI / Hardware Intelligence</td>
+          <td>$5M seed raise (Jan 2026, TechCrunch). Looking for full-stack and backend engineers. Stack: Python, TypeScript, React, Supabase, PostgreSQL, FastAPI, AWS.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">FastAPI</span><span class="tag">AWS</span><span class="tag">Supabase</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://cvector.ai/careers" target="_blank">cvector.ai/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/cvector" target="_blank">LinkedIn</a></td>
+          <td>Founder (TechCrunch article)</td>
+          <td>—</td>
+          <td>Find via LI</td>
+          <td>—</td>
+          <td class="yes">✓ Remote</td>
+          <td class="maybe">Check per role</td>
+          <td class="yes">Yes — freshly funded</td>
+          <td>Apply via site + LI</td>
+          <td>$90–140k USD</td>
+          <td>Fresh $5M seed = actively hiring. Your Supabase + PostgreSQL + FastAPI experience (from your PRISM project) is directly relevant.</td>
+        </tr>
+
+        <!-- 19 -->
+        <tr class="highlight-row">
+          <td>19</td>
+          <td class="company-name">Ashby</td>
+          <td>🇺🇸 US / Remote Global</td>
+          <td>60–120</td>
+          <td>HR Tech / Recruiting SaaS</td>
+          <td>YC 2019, 100% remote async, engineers distributed across NA and Europe. Product engineer role, TypeScript + PostgreSQL stack. Engineers get full ownership of features.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Node.js</span><span class="tag">Rust</span></td>
+          <td><span class="prob prob-med">MEDIUM</span></td>
+          <td><a href="https://ashbyhq.com/careers" target="_blank">ashbyhq.com/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/ashby-hq" target="_blank">LinkedIn</a></td>
+          <td>Benji Encz (CEO)</td>
+          <td>CTO (YC team)</td>
+          <td><a href="https://www.linkedin.com/in/bencz" target="_blank">Benji LI</a></td>
+          <td>—</td>
+          <td class="yes">✓ Full Remote Global</td>
+          <td class="yes">Yes — hires globally</td>
+          <td class="yes">Yes — HN May 2026</td>
+          <td>Apply via careers page</td>
+          <td>$153–220k (Sr) USD</td>
+          <td>Strong async culture. More competitive (growing to 120 eng) but global hiring means real international chances. Good brand for your CV.</td>
+        </tr>
+
+        <!-- 20 -->
+        <tr>
+          <td>20</td>
+          <td class="company-name">Oscilar</td>
+          <td>🌍 Remote (EU incl.)</td>
+          <td>30–80</td>
+          <td>AI Risk / Fraud Detection</td>
+          <td>Hiring Sr/Staff infra engineers in Europe. Full remote, TypeScript + cloud. AI-native risk decisioning platform.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">Java</span><span class="tag">Cloud</span><span class="tag">Infrastructure</span></td>
+          <td><span class="prob prob-med">MEDIUM</span></td>
+          <td><a href="https://oscilar.com/careers" target="_blank">oscilar.com/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/oscilar" target="_blank">LinkedIn</a></td>
+          <td>Neha Narkhede (CEO, Confluent co-founder)</td>
+          <td>CTO (Confluent background)</td>
+          <td><a href="https://www.linkedin.com/in/nehanarkhede" target="_blank">Neha LI</a></td>
+          <td>—</td>
+          <td class="yes">✓ Remote EU/US</td>
+          <td class="maybe">Check per role</td>
+          <td class="yes">Yes — HN Mar 2026</td>
+          <td>Apply via site</td>
+          <td>$100–150k USD</td>
+          <td>Neha Narkhede (Kafka co-creator) as CEO. Exceptional engineering culture. Europe-inclusive remote.</td>
+        </tr>
+
+        <!-- 21 -->
+        <tr class="highlight-row">
+          <td>21</td>
+          <td class="company-name">Enrollio</td>
+          <td>🌍 Remote Global</td>
+          <td>5–20</td>
+          <td>SaaS / Education Tech</td>
+          <td>Full-stack TypeScript NestJS + React. Remote anywhere. Fast-growing SaaS with real users. Engineers shape the product directly.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">NestJS</span><span class="tag">React</span><span class="tag">PostgreSQL</span><span class="tag">Stripe</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://weworkremotely.com" target="_blank">WWR listing</a></td>
+          <td>Find via LI</td>
+          <td>Founder (find via LI)</td>
+          <td>—</td>
+          <td>Find via LI</td>
+          <td>—</td>
+          <td class="yes">✓ Full Remote</td>
+          <td class="yes">Remote contractor</td>
+          <td class="yes">Yes — WWR listing</td>
+          <td>Apply via WWR + LI founder outreach</td>
+          <td>$60–90k USD</td>
+          <td>Hundreds of live paying customers. Real product. Your NestJS or Node.js backend skills translate. Authentication + billing APIs are core to their work — relevant to your MS Graph experience.</td>
+        </tr>
+
+        <!-- 22 -->
+        <tr>
+          <td>22</td>
+          <td class="company-name">Karat Financial</td>
+          <td>🇺🇸 US / Remote</td>
+          <td>20–60</td>
+          <td>FinTech / Creator Economy</td>
+          <td>YC W20, product engineer role, TypeScript-based stack, building financial products for creators. Active hiring.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">APIs</span></td>
+          <td><span class="prob prob-med">MEDIUM</span></td>
+          <td><a href="https://workatastartup.com/companies/karat-financial" target="_blank">workatastartup.com</a></td>
+          <td><a href="https://www.linkedin.com/company/karat-financial" target="_blank">LinkedIn</a></td>
+          <td>Eric Wei (CEO)</td>
+          <td>Will Kim (CTO)</td>
+          <td><a href="https://www.linkedin.com/in/ericwei" target="_blank">Eric LI</a></td>
+          <td><a href="https://www.linkedin.com/in/willkim" target="_blank">Will LI</a></td>
+          <td class="yes">✓ Remote</td>
+          <td class="maybe">Check per role</td>
+          <td class="yes">Yes</td>
+          <td>Apply YC + LI to Will Kim</td>
+          <td>$90–140k USD</td>
+          <td>Both founders active on LinkedIn. Will Kim (CTO) is contactable. Creator economy is high-growth sector.</td>
+        </tr>
+
+        <!-- 23 -->
+        <tr class="highlight-row">
+          <td>23</td>
+          <td class="company-name">Cyble</td>
+          <td>🇺🇸 US / Remote Global</td>
+          <td>100–200</td>
+          <td>Cybersecurity / AI</td>
+          <td>YC W21, AI-native cybersecurity. Global remote hiring. AI engineer roles open. TypeScript + cloud infrastructure relevant.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Cloud</span><span class="tag">Docker</span><span class="tag">APIs</span></td>
+          <td><span class="prob prob-med">MEDIUM</span></td>
+          <td><a href="https://cyble.com/careers" target="_blank">cyble.com/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/cyble" target="_blank">LinkedIn</a></td>
+          <td>Manish Chachada (CEO)</td>
+          <td>—</td>
+          <td><a href="https://www.linkedin.com/in/manishchachada" target="_blank">Manish LI</a></td>
+          <td>—</td>
+          <td class="yes">✓ Remote Global</td>
+          <td class="yes">Yes</td>
+          <td class="yes">Yes</td>
+          <td>Apply via site</td>
+          <td>$70–120k USD</td>
+          <td>Strong international hire track record. Larger for this list but genuinely global. Good brand to have on CV.</td>
+        </tr>
+
+        <!-- 24 -->
+        <tr>
+          <td>24</td>
+          <td class="company-name">Supermaven</td>
+          <td>🇺🇸 US / Remote</td>
+          <td>5–15</td>
+          <td>AI DevTools / Code Completion</td>
+          <td>Developer tooling startup (acquired by Cursor/Anysphere interest). Small team, TypeScript/cloud, execution-first culture. HN alumni.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Cloud</span><span class="tag">AI</span></td>
+          <td><span class="prob prob-med">MEDIUM</span></td>
+          <td><a href="https://supermaven.com" target="_blank">supermaven.com</a></td>
+          <td><a href="https://www.linkedin.com/company/supermaven" target="_blank">LinkedIn</a></td>
+          <td>Jacob Jackson (CEO, ex-Tabnine)</td>
+          <td>Co-founder (technical)</td>
+          <td><a href="https://www.linkedin.com/in/jacobj" target="_blank">Jacob LI</a></td>
+          <td>—</td>
+          <td class="yes">✓ Remote</td>
+          <td class="maybe">Check</td>
+          <td class="maybe">Intermittent</td>
+          <td>LI DM to Jacob</td>
+          <td>$100–160k USD</td>
+          <td>If you use AI coding tools daily, mention it. Developer-tools companies love engineers who are power users of their own category.</td>
+        </tr>
+
+        <!-- 25 -->
+        <tr class="highlight-row">
+          <td>25</td>
+          <td class="company-name">Trace (AI)</td>
+          <td>🌍 Remote Global</td>
+          <td>5–15</td>
+          <td>Physical AI / Robotics Data</td>
+          <td>Full remote, "experienced founders with successful exit," small senior team, high trust. TypeScript/cloud. Hires globally.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Cloud</span></td>
+          <td><span class="prob prob-med">MEDIUM</span></td>
+          <td><a href="https://trace.ai/careers" target="_blank">trace.ai/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/trace-ai" target="_blank">LinkedIn</a></td>
+          <td>Founders (find via LI)</td>
+          <td>—</td>
+          <td>Find via LI</td>
+          <td>—</td>
+          <td class="yes">✓ Full Remote Global</td>
+          <td class="yes">Global hire policy</td>
+          <td class="yes">Yes — HN Mar 2026</td>
+          <td>Apply via site + LI</td>
+          <td>$90–140k + equity USD</td>
+          <td>"Work where you want, when you want." Generous vacation. Real ownership. Robotics data is a fast-growing niche.</td>
+        </tr>
+
+        <!-- 26 -->
+        <tr>
+          <td>26</td>
+          <td class="company-name">Ruby Labs</td>
+          <td>🌍 Remote Global</td>
+          <td>50–150</td>
+          <td>Consumer SaaS / Mobile</td>
+          <td>Mid-level full-stack role, Next.js + Node.js, remote anywhere. QR-code SaaS product. Less competitive than enterprise SaaS.</td>
+          <td><span class="tag">Next.js</span><span class="tag">Node.js</span><span class="tag">TypeScript</span><span class="tag">PostgreSQL</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://rubylabs.com/careers" target="_blank">rubylabs.com/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/ruby-labs" target="_blank">LinkedIn</a></td>
+          <td>—</td>
+          <td>Engineering leads</td>
+          <td>—</td>
+          <td>—</td>
+          <td class="yes">✓ Full Remote Global</td>
+          <td class="yes">Hires globally</td>
+          <td class="yes">Yes</td>
+          <td>Apply via site</td>
+          <td>$60–100k USD</td>
+          <td>Mid-level role — accessible entry point. Next.js + Node.js stack is your core. Good for building remote work track record.</td>
+        </tr>
+
+        <!-- 27 -->
+        <tr class="highlight-row">
+          <td>27</td>
+          <td class="company-name">Dablam</td>
+          <td>🌍 Remote Global</td>
+          <td>5–20</td>
+          <td>AI Outreach / B2B</td>
+          <td>2–4 years experience wanted, TypeScript + Node.js + AI agents + ETL pipelines. Remote global. Exact experience band for you.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">AI Agents</span><span class="tag">Linux</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td>HN post (May 2026)</td>
+          <td>Find via LI</td>
+          <td>Founder (HN post)</td>
+          <td>—</td>
+          <td>Find via LI</td>
+          <td>—</td>
+          <td class="yes">✓ Full Remote</td>
+          <td class="yes">Remote contractor</td>
+          <td class="yes">Yes — HN May 2026</td>
+          <td>Reply to HN post directly</td>
+          <td>$60–90k USD</td>
+          <td>"2–4 years experience" = exactly where you are. Your production experience with APIs and auth systems is directly relevant. Reply to their HN comment.</td>
+        </tr>
+
+        <!-- 28 -->
+        <tr>
+          <td>28</td>
+          <td class="company-name">In The Loop Engineering</td>
+          <td>🌍 Remote Global</td>
+          <td>5–15</td>
+          <td>Fractional Engineering / AI Consulting</td>
+          <td>Hiring "senior consulting engineers" comfortable with Next.js/TypeScript/Python. Part-time/contract. Review AI-gen code. Good portfolio builder.</td>
+          <td><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">Cloud</span><span class="tag">AI</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td><a href="https://intheloop.engineering" target="_blank">intheloop.engineering</a></td>
+          <td>Find via LI</td>
+          <td>Founders (HN post)</td>
+          <td>—</td>
+          <td>Find via LI</td>
+          <td>—</td>
+          <td class="yes">✓ Full Remote</td>
+          <td class="yes">Contract/remote</td>
+          <td class="yes">Yes — HN May 2026</td>
+          <td>Email humans@intheloop.engineering with "HN – Human" subject</td>
+          <td>$50–100/hr contract</td>
+          <td>Contact email is public. Part-time/contract — good while job searching. Builds your portfolio with real production code reviews.</td>
+        </tr>
+
+        <!-- 29 -->
+        <tr class="highlight-row">
+          <td>29</td>
+          <td class="company-name">SuppMatch</td>
+          <td>🇵🇱 Poland / Remote EU</td>
+          <td>2–10</td>
+          <td>AI / E-commerce / Health</td>
+          <td>Looking for CTO or senior engineer. TypeScript + React Native + Node.js + GraphQL + vector databases + Docker/K8s. Active in 8+ European markets.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">React Native</span><span class="tag">Node.js</span><span class="tag">GraphQL</span><span class="tag">Docker</span><span class="tag">K8s</span></td>
+          <td><span class="prob prob-high">HIGH</span></td>
+          <td>HN post (Mar 2026)</td>
+          <td>Find via LI</td>
+          <td>Founder (HN post)</td>
+          <td>You could be the CTO</td>
+          <td>Find via LI</td>
+          <td>—</td>
+          <td class="yes">✓ Remote EU</td>
+          <td class="maybe">EU preferred</td>
+          <td class="yes">Yes — HN Mar 2026</td>
+          <td>Reply to HN post</td>
+          <td>€50–70k + equity</td>
+          <td>Seed-stage. They need a technical co-founder type. Your RAG + vector DB + Docker + Azure experience is exactly what they need. Closing a seed round.</td>
+        </tr>
+
+        <!-- 30 -->
+        <tr>
+          <td>30</td>
+          <td class="company-name">Maiven Energy</td>
+          <td>🌍 Remote / US</td>
+          <td>5–20</td>
+          <td>Clean Energy Tech</td>
+          <td>Small mission-driven team, venture-backed, looking for builders with real ownership. TypeScript/React/Next.js + AWS stack. Utilities customers + real contracts.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">AWS</span><span class="tag">Python</span></td>
+          <td><span class="prob prob-med">MEDIUM</span></td>
+          <td><a href="https://maivenergy.com/careers" target="_blank">maivenergy.com</a></td>
+          <td>Find via LI</td>
+          <td>Co-founders</td>
+          <td>—</td>
+          <td>Find via LI</td>
+          <td>—</td>
+          <td class="yes">✓ Remote</td>
+          <td class="maybe">Check</td>
+          <td class="yes">Yes — HN May 2026</td>
+          <td>Apply + LI DM to co-founders</td>
+          <td>$90–130k USD</td>
+          <td>"Venture backed, moving fast." Real utility customers = stable revenue. TypeScript + Next.js frontend is front-and-center need.</td>
+        </tr>
+
+        <!-- 31 -->
+        <tr class="highlight-row">
+          <td>31</td>
+          <td class="company-name">Wasmer</td>
+          <td>🌍 Remote / EU</td>
+          <td>10–25</td>
+          <td>WebAssembly / Cloud Infra</td>
+          <td>Next-gen container infrastructure. Remote EU roles. Engineering-first culture. Developer education engineer role also open. TypeScript + cloud + DevOps overlap.</td>
+          <td><span class="tag">Rust</span><span class="tag">TypeScript</span><span class="tag">WebAssembly</span><span class="tag">Cloud</span><span class="tag">Docker</span></td>
+          <td><span class="prob prob-med">MEDIUM</span></td>
+          <td><a href="https://wasmer.io/careers" target="_blank">wasmer.io/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/wasmerio" target="_blank">LinkedIn</a></td>
+          <td>Syrus Akbary (CEO)</td>
+          <td>—</td>
+          <td><a href="https://www.linkedin.com/in/syrusak" target="_blank">Syrus LI</a></td>
+          <td>—</td>
+          <td class="yes">✓ Remote EU / Global</td>
+          <td class="maybe">EU preferred for some roles</td>
+          <td class="yes">Yes — HN Apr 2026</td>
+          <td>Apply via site + LI connect Syrus</td>
+          <td>$80–130k USD</td>
+          <td>Infrastructure-forward — aligns with your DevOps trajectory. Syrus is active on LinkedIn and responds to engineers. Rust is a plus but not required.</td>
+        </tr>
+
+        <!-- 32 -->
+        <tr>
+          <td>32</td>
+          <td class="company-name">Goody</td>
+          <td>🇺🇸 US / Remote</td>
+          <td>30–80</td>
+          <td>B2B Commerce / Gifting SaaS</td>
+          <td>CTO Mark is active on HN/LinkedIn. React + TypeScript + Node.js. Used by Google, Stripe, Anthropic. Engineering-first. Scaling in 2026.</td>
+          <td><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Node.js</span><span class="tag">Ruby</span><span class="tag">PostgreSQL</span></td>
+          <td><span class="prob prob-med">MEDIUM</span></td>
+          <td><a href="https://ongoody.com/careers" target="_blank">ongoody.com/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/goody-tech" target="_blank">LinkedIn</a></td>
+          <td>Russ Berman (CEO)</td>
+          <td>Mark (CTO, active on HN)</td>
+          <td><a href="https://www.linkedin.com/in/russberman" target="_blank">Russ LI</a></td>
+          <td><a href="https://www.linkedin.com/in/markbandstra" target="_blank">Mark LI</a></td>
+          <td class="yes">✓ Remote</td>
+          <td class="maybe">US preferred</td>
+          <td class="yes">Yes — HN Apr 2026</td>
+          <td>LI DM to Mark (CTO) — he's active</td>
+          <td>$130–200k USD</td>
+          <td>Mark actively posts on HN. Reaching out via LI with reference to his HN comment will get a response. Strong team, strong clients.</td>
+        </tr>
+
+        <!-- 33 -->
+        <tr class="highlight-row">
+          <td>33</td>
+          <td class="company-name">Upway</td>
+          <td>🇫🇷 France / Paris</td>
+          <td>50–100 (eng ~30 by 2026)</td>
+          <td>E-commerce / Refurbished E-bikes</td>
+          <td>$60M Series C. Growing eng team 12→30 in 2026. Shape Up methodology. Engineers own full problem → solution → ship cycle. TypeScript stack.</td>
+          <td><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">Logistics APIs</span></td>
+          <td><span class="prob prob-med">MEDIUM</span></td>
+          <td><a href="https://upway.com/careers" target="_blank">upway.com/careers</a></td>
+          <td><a href="https://www.linkedin.com/company/upway-bikes" target="_blank">LinkedIn</a></td>
+          <td>Toussaint Wattinne (CEO)</td>
+          <td>CTO (Paris team)</td>
+          <td><a href="https://www.linkedin.com/in/toussaintwattinne" target="_blank">Toussaint LI</a></td>
+          <td>—</td>
+          <td class="maybe">Paris onsite preferred</td>
+          <td class="maybe">EU work rights helpful</td>
+          <td class="yes">Yes — HN listing</td>
+          <td>Apply via site</td>
+          <td>€60–85k</td>
+          <td>Massive growth phase. All levels hiring. If relocation to Paris is an option, this is a strong bet. Series C = financial stability.</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===== SECTION 2: TOP 10 RANKING ===== -->
+<div class="section" id="top10">
+  <div class="section-label">02 — Priority</div>
+  <div class="section-title">Top 10 Companies Most Likely to <span>Reply</span></div>
+
+  <div class="rank-grid">
+
+    <div class="rank-card" data-rank="1">
+      <div class="rank-num">// 01 CONTACT NOW</div>
+      <div class="rank-name">Kanmon</div>
+      <div class="rank-why">CTO email publicly listed in their HN post (mags@kanmonhq.com). Stack is a 100% match: Next.js, NestJS, TypeScript, PostgreSQL, GCP. Tiny team = huge impact. They said "direct line to founders."</div>
+      <div class="rank-action">→ Email mags@kanmonhq.com TODAY</div>
+    </div>
+
+    <div class="rank-card" data-rank="2">
+      <div class="rank-num">// 02 CONTACT NOW</div>
+      <div class="rank-name">Gridmatic</div>
+      <div class="rank-why">CEO Kevin Dhingra's email (kevin@gridmatic.com) is in their HN post. They said: "Send one sentence about the most impressive thing you've built." You have PRISM — use it.</div>
+      <div class="rank-action">→ Email kevin@gridmatic.com with 1-sentence pitch</div>
+    </div>
+
+    <div class="rank-card" data-rank="3">
+      <div class="rank-num">// 03 CONTACT NOW</div>
+      <div class="rank-name">In The Loop Engineering</div>
+      <div class="rank-why">Email is public: humans@intheloop.engineering. Subject line is specified: "HN – Human". Part-time contract but builds portfolio and income while searching.</div>
+      <div class="rank-action">→ Email humans@intheloop.engineering with "HN – Human" subject</div>
+    </div>
+
+    <div class="rank-card" data-rank="4">
+      <div class="rank-num">// 04 PRIORITY</div>
+      <div class="rank-name">MixRank (YC S11)</div>
+      <div class="rank-why">Explicitly hires globally in 20+ countries. 0–3 years experience explicitly welcome. Profitable + employee-owned. No layoff risk. Apply via YC then email Kiran (Chief of Staff).</div>
+      <div class="rank-action">→ Apply workatastartup.com + LI DM Kiran</div>
+    </div>
+
+    <div class="rank-card" data-rank="5">
+      <div class="rank-num">// 05 PRIORITY</div>
+      <div class="rank-name">Weflow</div>
+      <div class="rank-why">Founders Philipp Stelzer and Janis Zech are active on LinkedIn and respond to cold DMs. 100% remote EU. Stack is identical. Cherry Ventures backed = financially stable.</div>
+      <div class="rank-action">→ LI DM Philipp Stelzer — mention Next.js + CI/CD</div>
+    </div>
+
+    <div class="rank-card" data-rank="6">
+      <div class="rank-num">// 06 PRIORITY</div>
+      <div class="rank-name">Matcha.fm</div>
+      <div class="rank-why">Direct application URL is public (matcha.fm/apply/fse). Full remote global. They want high-ownership builders. Apply immediately — this link won't stay open forever.</div>
+      <div class="rank-action">→ Apply at matcha.fm/apply/fse now</div>
+    </div>
+
+    <div class="rank-card" data-rank="7">
+      <div class="rank-num">// 07 HIGH VALUE</div>
+      <div class="rank-name">Lago</div>
+      <div class="rank-why">Open-source. Contributing to their GitHub repo before applying is the strongest possible signal. YC + FirstMark backed. Founders engage with contributors publicly.</div>
+      <div class="rank-action">→ Star + open a PR on github.com/getlago/lago, then apply</div>
+    </div>
+
+    <div class="rank-card" data-rank="8">
+      <div class="rank-num">// 08 HIGH VALUE</div>
+      <div class="rank-name">Dablam</div>
+      <div class="rank-why">HN post is live. 2–4 years experience wanted. Your TypeScript + API + production background fits perfectly. Reply to HN thread directly — founders read every reply.</div>
+      <div class="rank-action">→ Reply to their HN comment + LI connect founder</div>
+    </div>
+
+    <div class="rank-card" data-rank="9">
+      <div class="rank-num">// 09 HIGH VALUE</div>
+      <div class="rank-name">CVector</div>
+      <div class="rank-why">Freshly funded ($5M seed, Jan 2026). Actively building team. Supabase + PostgreSQL + FastAPI + AWS stack — this is basically your PRISM stack. Apply before they fill up.</div>
+      <div class="rank-action">→ Apply via cvector.ai + LI connect founders</div>
+    </div>
+
+    <div class="rank-card" data-rank="10">
+      <div class="rank-num">// 10 STRONG</div>
+      <div class="rank-name">Hotglue (YC S21)</div>
+      <div class="rank-why">Integration/API platform company — your REST API + TypeScript expertise is exactly what they need. Tyler DeCicco (CEO) is reachable on LinkedIn. YC backing = credible hiring.</div>
+      <div class="rank-action">→ Apply workatastartup.com + LI DM Tyler DeCicco</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== SECTION 3: WHO TO CONTACT FIRST ===== -->
+<div class="section" id="who-first">
+  <div class="section-label">03 — Contact Intelligence</div>
+  <div class="section-title">Who to Contact <span>First</span></div>
+
+  <div class="info-grid">
+
+    <div class="info-card">
+      <div class="info-title"><div class="dot" style="background:var(--accent3)"></div> Founder / CEO</div>
+      <ul class="info-list">
+        <li>Best for companies with &lt;20 engineers where CEO still codes or reads technical context</li>
+        <li>Best platforms: LinkedIn, HN replies, Twitter/X for technical founders</li>
+        <li>When: company is pre-Series A, or you have a specific insight about their product</li>
+        <li>Risk: CEO is busy — your message must be sharp, short, and show you've used their product</li>
+        <li>Companies to use this on: Weflow (Philipp), Gridmatic (Kevin), Topliner, BoWatt, SuppMatch</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <div class="info-title"><div class="dot" style="background:var(--accent2)"></div> CTO / Engineering Head</div>
+      <ul class="info-list">
+        <li>Best for companies with 20–80 engineers where CTO still does code review</li>
+        <li>CTOs respond to technical specificity — mention their stack, their architecture challenges</li>
+        <li>Often more reachable than CEO because they're less bombarded</li>
+        <li>Reference GitHub repos, their blog posts, or HN comments they've made</li>
+        <li>Companies to use this on: Goody (Mark), Karat Financial (Will Kim), GovSignals, Kanmon</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <div class="info-title"><div class="dot" style="background:var(--accent4)"></div> Engineering Manager</div>
+      <ul class="info-list">
+        <li>Best when company has 50–150 engineers and there's a clear eng manager layer</li>
+        <li>They care most about execution speed, communication, and team fit</li>
+        <li>Find them via LinkedIn — search "[company] engineering manager"</li>
+        <li>Message should reference specific projects or pull requests, and ask a thoughtful question</li>
+        <li>Companies to use this on: Ashby, Cosuno, Estuary, Upway, Cyble</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <div class="info-title"><div class="dot" style="background:var(--accent)"></div> Recruiter / Talent</div>
+      <ul class="info-list">
+        <li>Only after applying via the portal — recruiter follow-up increases response rate by ~40%</li>
+        <li>Never reach out to a recruiter as your first touch — go to engineers first</li>
+        <li>Recruiters respond to: clear role fit, availability, and no ambiguity about experience</li>
+        <li>Find them via LinkedIn: "[company] recruiter" or "[company] talent acquisition"</li>
+        <li>Good for: Ashby, Ruby Labs, Cyble, Enrollio</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== SECTION 4: OUTREACH STRATEGY ===== -->
+<div class="section" id="outreach-strategy">
+  <div class="section-label">04 — Playbook</div>
+  <div class="section-title">Outreach <span>Strategy</span> by Company Type</div>
+
+  <div class="strategy-grid">
+
+    <div class="strategy-card founder">
+      <div class="strategy-who">Tiny Startup (&lt;15 people)</div>
+      <div class="strategy-subtitle">APPROACH: FOUNDER OUTREACH</div>
+      <div class="strategy-step"><div class="step-num">01</div><div class="step-text">Find the founder on LinkedIn. Check if they've posted in the last 30 days — if yes, comment genuinely on their post first.</div></div>
+      <div class="strategy-step"><div class="step-num">02</div><div class="step-text"><strong>Message format:</strong> "Hey [Name] — I've been following [Company] and actually built something similar ([brief PRISM mention]). I'm a full-stack engineer with [tech] who ships production systems. Would love to chat if you're open to it."</div></div>
+      <div class="strategy-step"><div class="step-num">03</div><div class="step-text">Keep it under 4 sentences. No resume link in first message. Link to GitHub or live project instead.</div></div>
+      <div class="strategy-step"><div class="step-num">04</div><div class="step-text">If no reply in 5 days, send one follow-up: "Totally fine if timing's off — wanted to leave you a [GitHub link] to my recent work in case it's useful."</div></div>
+      <div class="strategy-step"><div class="step-num">05</div><div class="step-text">Best companies: Kanmon, BoWatt, Topliner, Matcha.fm, Pinetree, SuppMatch, VidRush</div></div>
+    </div>
+
+    <div class="strategy-card cto">
+      <div class="strategy-who">Growth Startup (15–80 people)</div>
+      <div class="strategy-subtitle">APPROACH: CTO/ENG LEAD OUTREACH</div>
+      <div class="strategy-step"><div class="step-num">01</div><div class="step-text">Apply via careers page FIRST. Then immediately connect with the CTO/eng head on LinkedIn.</div></div>
+      <div class="strategy-step"><div class="step-num">02</div><div class="step-text"><strong>Message format:</strong> "Just applied for the [Role] at [Company]. I've shipped full-stack production systems with [specific tech from their JD] — here's [one specific thing] that matches what you're building. Happy to share more."</div></div>
+      <div class="strategy-step"><div class="step-num">03</div><div class="step-text">Reference something specific from their tech blog, GitHub, or HN thread. Shows genuine research.</div></div>
+      <div class="strategy-step"><div class="step-num">04</div><div class="step-text">Best companies: Weflow, Cosuno, Hotglue, GovSignals, Karat Financial, Goody, Estuary</div></div>
+    </div>
+
+    <div class="strategy-card em">
+      <div class="strategy-who">YC / VC-Backed (open roles)</div>
+      <div class="strategy-subtitle">APPROACH: PORTAL + FOLLOW-UP</div>
+      <div class="strategy-step"><div class="step-num">01</div><div class="step-text">Apply via workatastartup.com or their careers page. YC companies check portals actively.</div></div>
+      <div class="strategy-step"><div class="step-num">02</div><div class="step-text">After applying, find someone from the engineering team on LinkedIn (not a recruiter). Send a brief note mentioning your application and one relevant technical detail.</div></div>
+      <div class="strategy-step"><div class="step-num">03</div><div class="step-text">For open-source companies (Lago, NetBird, Wasmer): contribute to GitHub first. Even a docs fix or small PR shows initiative.</div></div>
+      <div class="strategy-step"><div class="step-num">04</div><div class="step-text">Best companies: MixRank, Hotglue, Karat Financial, Cyble, Ashby, Lago, Trace</div></div>
+    </div>
+
+    <div class="strategy-card recruiter">
+      <div class="strategy-who">HN "Who is Hiring?" Posts</div>
+      <div class="strategy-subtitle">APPROACH: DIRECT COMMENT OR EMAIL</div>
+      <div class="strategy-step"><div class="step-num">01</div><div class="step-text">Go to hnhiring.com — filter by "TypeScript" or "Remote." Find companies from this list that posted recently.</div></div>
+      <div class="strategy-step"><div class="step-num">02</div><div class="step-text">Reply directly to their HN comment. This is public, signals initiative, and founders almost always read replies.</div></div>
+      <div class="strategy-step"><div class="step-num">03</div><div class="step-text"><strong>Reply format:</strong> "Background: [1 line]. I have [specific stack they mentioned]. [Brief why it fits]. Resume: [link]. GitHub: [link]. Happy to chat."</div></div>
+      <div class="strategy-step"><div class="step-num">04</div><div class="step-text">Best HN targets right now: Kanmon, Gridmatic, Dablam, In The Loop Engineering, Pinetree, NetBird, BoWatt, SuppMatch, Maiven Energy</div></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== MESSAGE TEMPLATES ===== -->
+<div class="section" id="templates">
+  <div class="section-label">05 — Copy-Paste</div>
+  <div class="section-title">Message <span>Templates</span></div>
+
+  <p style="color: var(--muted); margin-bottom: 20px; font-size: 13px;">Customize the highlighted parts for each company. Keep it short — nobody reads long cold messages.</p>
+
+  <p style="color: var(--text); font-weight: 600; margin-bottom: 8px;">Template A — LinkedIn DM to Founder (tiny startup)</p>
+  <div class="template-block">
+    <span class="label">LINKEDIN DM</span>
+Hi <span class="placeholder">[Name]</span> — I've been following <span class="placeholder">[Company]</span> and find what you're building with <span class="placeholder">[specific product feature]</span> genuinely interesting.
+
+I'm a full-stack engineer with production experience in <span class="placeholder">[Next.js / TypeScript / PostgreSQL]</span>. Most recently I built <span class="placeholder">[PRISM — a multi-tenant SaaS platform with Azure AD auth, RAG, and real-time sync]</span> from scratch.
+
+If you're looking for someone who ships and can work independently, I'd love 15 mins. GitHub: <span class="placeholder">[your link]</span>
+  </div>
+
+  <p style="color: var(--text); font-weight: 600; margin-top: 24px; margin-bottom: 8px;">Template B — HN Reply (hiring thread)</p>
+  <div class="template-block">
+    <span class="label">HN COMMENT</span>
+Background: Full-stack engineer with production experience in <span class="placeholder">[TypeScript, Next.js, Node.js, PostgreSQL, Docker, Azure]</span>.
+
+Built <span class="placeholder">[PRISM]</span> — a multi-tenant SaaS with Microsoft Graph API integration, SSE streaming, RAG pipeline, and CI/CD on Vercel/Render. Comfortable working independently across the stack.
+
+Open to remote. Resume: <span class="placeholder">[link]</span> | GitHub: <span class="placeholder">[link]</span>
+  </div>
+
+  <p style="color: var(--text); font-weight: 600; margin-top: 24px; margin-bottom: 8px;">Template C — Direct Email (when CEO/CTO email is public)</p>
+  <div class="template-block">
+    <span class="label">EMAIL</span>
+Subject: Full-Stack Engineer — <span class="placeholder">[TypeScript / Next.js / DevOps]</span>
+
+Hi <span class="placeholder">[Kevin / Name]</span>,
+
+Most impressive thing I've built: <span class="placeholder">[PRISM — a production multi-tenant SaaS platform with MS Graph API auth, Azure AD, RAG chat, and delta sync for SharePoint documents, deployed on Vercel + Render with CI/CD]</span>.
+
+Stack overlap with <span class="placeholder">[Gridmatic]</span>: <span class="placeholder">[Next.js, TypeScript, PostgreSQL, Docker, cloud infra]</span>. I'm a builder who works well without handholding.
+
+GitHub: <span class="placeholder">[link]</span> | Happy to share more if useful.
+
+<span class="placeholder">[Your name]</span>
+  </div>
+</div>
+
+<!-- ===== SECTION 5: INTERNATIONAL FIT ===== -->
+<div class="section" id="international">
+  <div class="section-label">06 — Geography</div>
+  <div class="section-title">Most Realistic for <span>International Candidates</span></div>
+
+  <div class="info-grid">
+
+    <div class="info-card">
+      <div class="info-title"><div class="dot" style="background:var(--accent)"></div> Tier 1 — Hire Globally, No Restrictions</div>
+      <ul class="info-list">
+        <li>MixRank — explicitly 20+ countries, 0–3yr experience welcome</li>
+        <li>Trace AI — "work where you want, when you want"</li>
+        <li>Ashby — engineers distributed across North America and Europe explicitly</li>
+        <li>Matcha.fm — full remote, direct apply URL, no geo restrictions mentioned</li>
+        <li>In The Loop Engineering — contract/remote, no restrictions</li>
+        <li>Dablam — remote global, 2–4 yr experience band</li>
+        <li>Ruby Labs — hiring globally, remote anywhere</li>
+        <li>Enrollio — remote anywhere, contractor model</li>
+        <li>Kanmon — remote, contractor-friendly</li>
+        <li>VidRush — remote global, contractor model</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <div class="info-title"><div class="dot" style="background:var(--accent4)"></div> Tier 2 — EU-Friendly (right-to-work or contractor)</div>
+      <ul class="info-list">
+        <li>Weflow — 100% remote EU, contractor model possible</li>
+        <li>Cosuno — remote EU, international team</li>
+        <li>NetBird — some remote EU roles available</li>
+        <li>Lago — remote, EU timezone preferred</li>
+        <li>Yazen — remote EU focus (Sweden)</li>
+        <li>SuppMatch — remote EU, Poland-based but EU market</li>
+        <li>Digimondo — Germany-based but EU remote possible</li>
+        <li>Oscilar — EU remote explicitly listed for infra roles</li>
+        <li>Wasmer — remote EU + global for some roles</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <div class="info-title"><div class="dot" style="background:var(--accent3)"></div> Tier 3 — US-Preferred (but check per role)</div>
+      <ul class="info-list">
+        <li>Estuary — US-based preferred but growing globally</li>
+        <li>Gridmatic — US preferred, but check per role</li>
+        <li>Cyble — genuinely global despite US HQ</li>
+        <li>Goody — US preferred but CTO is reachable</li>
+        <li>Karat Financial — US-based but has global eng presence</li>
+        <li>Maiven Energy — US preferred, verify remote policy</li>
+        <li>Hotglue — US-based, contractor possible for international</li>
+      </ul>
+    </div>
+
+    <div class="info-card">
+      <div class="info-title"><div class="dot" style="background:var(--accent2)"></div> UAE / Gulf Region Options</div>
+      <ul class="info-list">
+        <li>UAE has no personal income tax — contractor income from global clients is highly efficient</li>
+        <li>Target companies with contractor/freelance models: In The Loop, Dablam, Ruby Labs, Enrollio, MixRank</li>
+        <li>UAE-based tech hubs: Wio Bank, Careem, Anghami, Fetchr — check their LinkedIn for openings</li>
+        <li>Use remote-first companies as primary targets — UAE timezone (GMT+4) overlaps well with Europe morning and Asia</li>
+        <li>If based in Dubai/Abu Dhabi, mention timezone compatibility in outreach (EU companies love it)</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== SECTION 6: DEVOPS ADVANTAGE ===== -->
+<div class="section" id="devops-advantage">
+  <div class="section-label">07 — Positioning</div>
+  <div class="section-title">Where DevOps + Full Stack Gives the <span>Strongest Advantage</span></div>
+
+  <div class="adv-grid">
+
+    <div class="adv-card">
+      <div class="adv-type">COMPANY TYPE</div>
+      <div class="adv-name">Platform Engineering Startups</div>
+      <div class="adv-text">Companies like GovSignals, NetBird, Wasmer, and Estuary are explicitly building infrastructure and need engineers who can straddle code + deployment. Your Docker + CI/CD + Azure background is a direct differentiator.</div>
+      <div class="adv-stars">★★★★★</div>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-type">COMPANY TYPE</div>
+      <div class="adv-name">Seed-Stage Startups (&lt;10 eng)</div>
+      <div class="adv-text">At companies like Pinetree, Topliner, BoWatt, and SuppMatch, you're often the only person who can both build the feature AND deploy it. Full-stack + DevOps = one person who replaces two hires.</div>
+      <div class="adv-stars">★★★★★</div>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-type">COMPANY TYPE</div>
+      <div class="adv-name">Open-Source Developer Tools</div>
+      <div class="adv-text">Lago, NetBird, Wasmer, and Estuary need engineers who understand CI/CD pipelines, Docker images, and cloud deployment — not just the TypeScript layer. Your GitHub CI/CD experience reads extremely well here.</div>
+      <div class="adv-stars">★★★★★</div>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-type">COMPANY TYPE</div>
+      <div class="adv-name">Multi-Tenant SaaS</div>
+      <div class="adv-text">Any SaaS company hiring for "platform engineer" or "infrastructure engineer" roles values the full-stack + ops combo. Your PRISM multi-tenant build (auth, sync, REST APIs, CI/CD) is directly applicable. Cosuno, Weflow, Kanmon, Ashby all fit this.</div>
+      <div class="adv-stars">★★★★☆</div>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-type">COMPANY TYPE</div>
+      <div class="adv-name">AI Wrappers / LLM SaaS</div>
+      <div class="adv-text">These companies need engineers who can build the UI + the API + handle deployment. Your Azure cloud + RAG + TypeScript background is rare. Matcha.fm, CVector, VidRush, and Dablam are strong targets.</div>
+      <div class="adv-stars">★★★★☆</div>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-type">COMPANY TYPE</div>
+      <div class="adv-name">Energy / Climate Tech</div>
+      <div class="adv-text">Gridmatic, Maiven Energy, and similar companies need engineers who can build Next.js dashboards AND handle AWS/cloud deployment. The DevOps combo removes a hire from their roadmap — that's leverage.</div>
+      <div class="adv-stars">★★★★☆</div>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-type">ROLE TITLE</div>
+      <div class="adv-name">How to Position Yourself</div>
+      <div class="adv-text">Don't call yourself "Full-Stack Developer." Call yourself "Full-Stack + Platform Engineer" or "Product Engineer with DevOps depth." This framing lands significantly better in startup job descriptions and gives you access to higher-comp roles.</div>
+      <div class="adv-stars">🔑 Key insight</div>
+    </div>
+
+    <div class="adv-card">
+      <div class="adv-type">PITCH LINE</div>
+      <div class="adv-name">What to Say in Every Message</div>
+      <div class="adv-text">"I build the feature and deploy it. TypeScript + Next.js on the frontend, Node.js + PostgreSQL on the backend, Docker + CI/CD for deployment — I don't hand off to a DevOps engineer because I can do both."</div>
+      <div class="adv-stars">🚀 Use this</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>// Startup Hiring Research · Full Stack Engineer · May 2026</p>
+  <p>Sources: HN Who Is Hiring (May/Apr/Mar 2026) · Wellfound · YC Work at a Startup · We Work Remotely · EU-Startups · Direct research</p>
+</div>
+
+</body>
+</html>
